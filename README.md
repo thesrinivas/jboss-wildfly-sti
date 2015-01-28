@@ -37,6 +37,12 @@ The STI builder does require a few scripts, below you can find the location and 
 *  **STI_SCRIPTS_URL** (default: '[.sti/](https://raw.githubusercontent.com/goldmann/openshift-jboss-wildfly/master/.sti)')
 
   This variable specifies the location of directory, where *assemble*, *run* and *save-artifacts* scripts are downloaded/copied from. By default the scriptsin this repository will be used, but users can provide an alternative location and run their own scripts.
+
+* **MAVEN_ARGS** (default: `package -Popenshift -DskipTests`)
+
+  This environment variable controls the Maven invocation. It contains the parameters that will be added after the `mvn -e` command to execute the build. The default Maven build will be invoked with this command: `mvn -e package -Popenshift -DskipTests`. You are free to change the default value at the build time by using the `-e` (`--env=""`) switch, for example:
+
+      sti build -e "MAVEN_ARGS=clean install" ...
   
 ## Copyright
 
