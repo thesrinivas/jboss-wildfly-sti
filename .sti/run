@@ -1,3 +1,4 @@
 #!/bin/sh
 
+export JAVA_OPTS="-javaagent:/opt/jboss/wildfly/standalone/java-agent/javaagent.jar"
 exec $JBOSS_HOME/bin/standalone.sh -b 0.0.0.0

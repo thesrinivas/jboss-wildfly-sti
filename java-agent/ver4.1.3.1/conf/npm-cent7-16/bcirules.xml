@@ -1,0 +1,5 @@
+<multiple-inheritance-rules>
+    <instrumentation-properties>
+        <property name="bci-fixer-other-classes" value="org.slf4j.impl.Slf4jLogger"/>
+    </instrumentation-properties>
+</multiple-inheritance-rules>

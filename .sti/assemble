@@ -26,6 +26,18 @@ cp -ad /tmp/src/* $LOCAL_SOURCE_DIR
 
 # If a pom.xml is present, this is a normal build scenario
 # so run maven.
+if [ -f "$LOCAL_SOURCE_DIR/java-agent/javaagent.jar" ]; then
+  pushd $LOCAL_SOURCE_DIR &> /dev/null
+  echo "found java-agent; including in image"
+
+  echo "Copying built war files into $DEPLOY_DIR for later deployment..."
+  cp -r java-agent $JBOSS_HOME/standalone >& /dev/null
+  
+  popd &> /dev/null
+else
+  echo "no java-agent"
+fi
+
 if [ -f "$LOCAL_SOURCE_DIR/pom.xml" ]; then
   # restore any maven dependencies which will be present if this is an
   # incremental build
